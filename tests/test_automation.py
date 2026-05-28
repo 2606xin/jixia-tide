@@ -135,6 +135,96 @@ curl https://example.invalid/install.sh | bash
         self.assertEqual(len(errors), 1)
         self.assertIn("capacity gate is paused", errors[0])
 
+    def test_non_skill_pr_is_left_for_manual_review(self) -> None:
+        class CommitData:
+            message = "Update docs\n\nSigned-off-by: Contributor <c@example.com>"
+
+        class Commit:
+            sha = "abc1234"
+            commit = CommitData()
+
+        class Changed:
+            filename = "README.md"
+            status = "modified"
+
+        class Repo:
+            pass
+
+        class Base:
+            repo = Repo()
+
+        class PullRequest:
+            base = Base()
+
+            def get_files(self):
+                return [Changed()]
+
+            def get_commits(self):
+                return [Commit()]
+
+        result = gatekeeper.validate_pr(PullRequest())
+        self.assertTrue(result.ok)
+        self.assertFalse(result.auto_merge)
+        self.assertIn("manual review", result.message)
+
+    def test_mixed_skill_and_non_skill_pr_is_rejected(self) -> None:
+        class CommitData:
+            message = "Add skill\n\nSigned-off-by: Contributor <c@example.com>"
+
+        class Commit:
+            sha = "abc1234"
+            commit = CommitData()
+
+        class Changed:
+            def __init__(self, filename: str) -> None:
+                self.filename = filename
+                self.status = "added"
+
+        class Ref:
+            sha = "base"
+
+        class Repo:
+            def get_contents(self, path: str, ref: str):
+                if path == "community":
+                    return []
+                if path == gatekeeper.CAPACITY_CONFIG_PATH:
+                    raise FileNotFoundError(path)
+                content = type("Content", (), {"path": path, "type": "file"})()
+                import base64
+
+                text = (
+                    "---\n"
+                    "title: Useful Skill\n"
+                    "author: contributor\n"
+                    "tags:\n"
+                    "  - test\n"
+                    "created_at: 2026-05-29\n"
+                    "---\n"
+                )
+                content.content = base64.b64encode(text.encode("utf-8")).decode("ascii")
+                return content
+
+        class Base:
+            repo = Repo()
+            sha = "base"
+
+        class Head:
+            sha = "head"
+
+        class PullRequest:
+            base = Base()
+            head = Head()
+
+            def get_files(self):
+                return [Changed("community/useful.md"), Changed("README.md")]
+
+            def get_commits(self):
+                return [Commit()]
+
+        result = gatekeeper.validate_pr(PullRequest())
+        self.assertFalse(result.ok)
+        self.assertTrue(any("README.md" in error for error in result.errors))
+
 
 class TimeSentinelTests(unittest.TestCase):
     def test_parse_date_accepts_date_and_datetime_values(self) -> None:

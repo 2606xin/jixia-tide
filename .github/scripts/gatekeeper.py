@@ -35,6 +35,8 @@ CAPACITY_CONFIG_PATH = "governance/capacity.yml"
 class ValidationResult:
     ok: bool
     errors: list[str]
+    auto_merge: bool = True
+    message: str = ""
 
 
 def decode_file(repo, path: str, ref: str) -> str:
@@ -202,6 +204,10 @@ def validate_capacity_gate(repo, pr, changed_files) -> list[str]:
     ]
 
 
+def is_skill_file(path: str) -> bool:
+    return path.startswith("community/") and path.endswith(".md")
+
+
 def validate_pr(pr) -> ValidationResult:
     repo = pr.base.repo
     errors: list[str] = []
@@ -211,6 +217,19 @@ def validate_pr(pr) -> ValidationResult:
         errors.append("PR does not contain any changed files.")
 
     errors.extend(validate_dco(pr))
+
+    touches_skill_files = any(is_skill_file(changed.filename) for changed in changed_files)
+    if not touches_skill_files:
+        return ValidationResult(
+            ok=not errors,
+            errors=errors,
+            auto_merge=False,
+            message=(
+                "This PR does not change active Skill Markdown files. "
+                "Gatekeeper skipped automatic merge and left it for community/manual review."
+            ),
+        )
+
     errors.extend(validate_capacity_gate(repo, pr, changed_files))
     errors.extend(validate_author_quota(repo, pr, changed_files))
 
@@ -222,7 +241,7 @@ def validate_pr(pr) -> ValidationResult:
         if status == "removed":
             errors.append(f"{path}: deleting files is not allowed through Gatekeeper")
             continue
-        if not path.startswith("community/") or not path.endswith(".md"):
+        if not is_skill_file(path):
             errors.append(f"{path}: only Markdown files under community/ are allowed")
             continue
 
@@ -282,6 +301,7 @@ def main() -> int:
     pr = repo.get_pull(int(pr_number))
     failure_label = ensure_label(repo, "gatekeeper:failed", "d73a4a", "Automated quality gate failed")
     success_label = ensure_label(repo, "gatekeeper:passed", "2da44e", "Automated quality gate passed")
+    manual_label = ensure_label(repo, "gatekeeper:manual-review", "fbca04", "Not eligible for automatic Gatekeeper merge")
 
     result = validate_pr(pr)
     if not result.ok:
@@ -299,6 +319,12 @@ def main() -> int:
         pr.as_issue().remove_from_labels(failure_label.name)
     except Exception:
         pass
+    if not result.auto_merge:
+        pr.as_issue().add_to_labels(manual_label.name)
+        comment(pr, result.message or "Gatekeeper skipped automatic merge for this PR.")
+        logging.info("PR #%s left for manual/community review.", pr.number)
+        return 0
+
     pr.as_issue().add_to_labels(success_label.name)
     comment(pr, "Gatekeeper checks passed. Attempting automatic approval and merge.")
     try:
