@@ -1,0 +1,31 @@
+name: Governance change
+description: Propose a change to rules, charter, lifecycle, or revenue governance
+title: "[Governance] "
+labels: ["governance"]
+body:
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposal
+      description: What rule or governance behavior should change?
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason
+      description: Why should the community consider this change?
+    validations:
+      required: true
+  - type: textarea
+    id: affected
+    attributes:
+      label: Affected areas
+      description: Skill ownership, resurrection, lifecycle, revenue, automation, founder rights, translations, etc.
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Slow decision check
+      options:
+        - label: I understand core rule changes should move slowly and visibly.
+          required: true

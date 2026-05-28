@@ -1,0 +1,38 @@
+name: Translation fix
+description: Report or propose a correction to translated public documents
+title: "[Translation] "
+labels: ["translation", "i18n"]
+body:
+  - type: dropdown
+    id: language
+    attributes:
+      label: Language
+      options:
+        - English
+        - Simplified Chinese
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: file
+    attributes:
+      label: File
+      description: Example: `README.en.md` or `CHARTER.en.md`.
+    validations:
+      required: true
+  - type: textarea
+    id: issue
+    attributes:
+      label: Translation issue
+      description: What wording may cause semantic misunderstanding?
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Suggested correction
+      description: Proposed replacement text.
+  - type: markdown
+    attributes:
+      value: |
+        The original text is Chinese. If translation causes semantic misunderstanding, the community should maintain and correct it.

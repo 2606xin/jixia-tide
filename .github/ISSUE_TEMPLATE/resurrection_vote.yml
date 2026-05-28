@@ -1,0 +1,30 @@
+name: Resurrection vote
+description: Request a vote to restore a Skill from legacy
+title: "[Resurrection] "
+labels: ["resurrection"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        To trigger the bot, comment on an issue with `/vote-resurrect {skill_name}`.
+        This form helps explain why the Skill should return.
+  - type: input
+    id: skill
+    attributes:
+      label: Skill name or path
+      description: Example: `example-skill` or `nested/example-skill.md`.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why should this Skill return?
+      description: Explain the renewed value, context, or community need.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Bot command
+      description: Paste the command you plan to use.
+      value: "/vote-resurrect "

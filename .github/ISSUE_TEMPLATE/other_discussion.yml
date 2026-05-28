@@ -1,0 +1,17 @@
+name: Open discussion
+description: Discuss ideas, questions, or social observations
+title: "[Discussion] "
+labels: ["discussion"]
+body:
+  - type: textarea
+    id: topic
+    attributes:
+      label: Topic
+      description: What would you like to discuss?
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context
+      description: Why does this matter for the Jixia Tide experiment?

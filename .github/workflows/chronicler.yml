@@ -1,0 +1,42 @@
+name: Chronicler
+
+on:
+  schedule:
+    # GitHub cron cannot express solar terms directly. Lichun usually falls on Feb 4.
+    - cron: "59 23 4 2 *"
+  workflow_dispatch:
+    inputs:
+      year:
+        description: Archive year
+        required: false
+        type: string
+
+permissions:
+  contents: write
+
+jobs:
+  publish-annual-archive:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: pip install -r .github/scripts/requirements.txt
+
+      - name: Run Chronicler
+        env:
+          GITHUB_TOKEN: ${{ secrets.GH_TOKEN || github.token }}
+        run: |
+          if [ -n "${{ inputs.year }}" ]; then
+            python .github/scripts/chronicler.py --year "${{ inputs.year }}"
+          else
+            python .github/scripts/chronicler.py
+          fi

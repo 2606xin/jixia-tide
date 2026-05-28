@@ -1,0 +1,44 @@
+name: Skill proposal
+description: Propose a new Skill before opening a PR
+title: "[Skill] "
+labels: ["skill"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Use this to discuss a Skill idea before submitting a Markdown file under `community/`.
+  - type: input
+    id: title
+    attributes:
+      label: Skill title
+      description: Proposed `title` frontmatter value.
+    validations:
+      required: true
+  - type: input
+    id: author
+    attributes:
+      label: Author
+      description: Proposed `author` frontmatter value.
+    validations:
+      required: true
+  - type: textarea
+    id: angle
+    attributes:
+      label: Observation angle
+      description: What human-AI boundary, social behavior, or playful experiment does this Skill explore?
+    validations:
+      required: true
+  - type: textarea
+    id: usage
+    attributes:
+      label: Expected usage
+      description: How should someone use this Skill?
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Checks
+      options:
+        - label: I understand each participant may have at most 5 active Skills.
+          required: true
+        - label: I will preserve attribution if this derives from another Skill.
+          required: true

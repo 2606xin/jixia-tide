@@ -1,0 +1,37 @@
+name: Automation bug
+description: Report Gatekeeper, Time Sentinel, Chronicler, or Resurrection Council behavior
+title: "[Automation] "
+labels: ["automation", "bug"]
+body:
+  - type: dropdown
+    id: module
+    attributes:
+      label: Module
+      options:
+        - Gatekeeper
+        - Time Sentinel
+        - Chronicler
+        - Resurrection Council
+        - Local tests
+        - Other
+    validations:
+      required: true
+  - type: textarea
+    id: observed
+    attributes:
+      label: Observed behavior
+      description: What happened?
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior
+      description: What did you expect instead?
+    validations:
+      required: true
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs or links
+      description: Paste relevant Action logs, PR links, issue links, or error messages.
