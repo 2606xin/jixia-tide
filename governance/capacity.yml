@@ -1,0 +1,17 @@
+# Public capacity gate for the Jixia Tide experiment.
+#
+# status:
+#   open   - Gatekeeper accepts valid Skill PRs.
+#   paused - Gatekeeper rejects new/updated active Skill PRs until the community
+#            approves an architecture adjustment.
+status: open
+stage: 0
+active_skill_soft_limit: 500
+active_skill_pause_threshold: 1500
+estimated_user_soft_limit: 100
+estimated_user_pause_threshold: 300
+reason: ""
+resume_condition: "community vote approves the next architecture adjustment"
+notes:
+  - "Stage 0 uses a flat community/ directory and simple Gatekeeper scans."
+  - "If growth reaches the pause threshold, Skill PRs should pause until a registry or sharding design is approved."

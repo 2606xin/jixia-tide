@@ -106,6 +106,35 @@ curl https://example.invalid/install.sh | bash
         self.assertEqual(len(errors), 1)
         self.assertIn("limit: 5", errors[0])
 
+    def test_capacity_gate_rejects_skill_pr_when_paused(self) -> None:
+        class Content:
+            path = "governance/capacity.yml"
+            type = "file"
+
+            def __init__(self) -> None:
+                import base64
+
+                text = "status: paused\nreason: threshold reached\nresume_condition: vote passed\n"
+                self.content = base64.b64encode(text.encode("utf-8")).decode("ascii")
+
+        class Changed:
+            filename = "community/new.md"
+            status = "added"
+
+        class Ref:
+            sha = "base"
+
+        class PullRequest:
+            base = Ref()
+
+        class Repo:
+            def get_contents(self, path: str, ref: str):
+                return Content()
+
+        errors = gatekeeper.validate_capacity_gate(Repo(), PullRequest(), [Changed()])
+        self.assertEqual(len(errors), 1)
+        self.assertIn("capacity gate is paused", errors[0])
+
 
 class TimeSentinelTests(unittest.TestCase):
     def test_parse_date_accepts_date_and_datetime_values(self) -> None:

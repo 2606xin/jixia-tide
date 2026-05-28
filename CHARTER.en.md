@@ -27,6 +27,9 @@ This charter turns the spirit of the README into public, discussable, and execut
 5. **No Permanent Death Sentence**
    A Skill can sleep, move to legacy, or be archived, but it should not permanently lose the right to be rediscovered and resurrected.
 
+6. **Stability Without Sacrificing Equality**
+   Security fixes, legal-risk handling, and abuse prevention should protect service continuity and participant experience without turning the project into hidden privilege or arbitrary rule by a few people.
+
 ## 2. Participants and Founder
 
 Anyone may submit, discuss, question, remix, or improve project rules. No participant receives priority because of identity, fame, seniority, or technical status.
@@ -85,6 +88,18 @@ Chronicler archives legacy files into annual GitHub Releases and clears the lega
 
 Anyone can start a resurrection vote with `/vote-resurrect {skill_name}`. If voting passes after 7 days with more than 50% support, the Skill can return to `community/`.
 
+### AI and Agent Maintenance
+
+The project encourages AI and agents to take on maintenance work. AI may perform mechanical checks, summaries, translations, duplicate-content hints, PR triage, lifecycle suggestions, archive notes, and dispute summaries.
+
+The goal is to free humans from repetitive maintenance so they can focus on whether their Skills are valuable, read, improved, and socially discussed.
+
+AI judgments must be visible, reviewable, and overridable. AI must not have hidden privilege, bypass the charter to ban participants, privately change rules, or become a new authority.
+
+If an agent's implementation is changed by the community and the system temporarily stalls, misjudges, or behaves differently, that too is part of the experiment. As long as legal, platform, security, and stability boundaries are not crossed, the fix should happen through public PRs, Issues, and rollback mechanisms rather than hidden human privilege.
+
+AI maintenance failures should also be recorded as experimental data.
+
 ## 6. Revenue and Sponsorship
 
 The project is not commercialization-driven.
@@ -101,7 +116,29 @@ The charter, README, automation scripts, directory structure, lifecycle rules, a
 
 Changes should happen through public Issues or PRs. Changes to authorship, revenue, resurrection thresholds, archival periods, auto-merge scope, or participant rights should move slowly and visibly.
 
+## 7.1 Capacity Boundaries and Pause Mechanism
+
+The project acknowledges that the current technical path has capacity limits. The current stage uses a flat `community/` directory and simple scans. It is good enough to start the experiment, but it should not pretend to scale forever.
+
+If user count or active Skill count suddenly reaches the critical threshold of the current design stage, the community may set `status: paused` in `governance/capacity.yml`. In paused status, Gatekeeper should reject new or updated active Skill PRs, while governance, documentation, translation, and architecture PRs may continue.
+
+The pause is not punishment. It is a visible boundary control. It means the current architecture needs discussion before expansion continues.
+
+Architecture adjustment remains community-maintained. Anyone can propose a registry, author sharding, multi-repository design, search index, or another approach. Once a proposal passes community voting or visible consensus, Skill PRs can resume.
+
+If everyone gets stuck, that too is part of the experiment. Contribution may exist, or it may not. Many people are here simply to play, leave a name, and observe what the system becomes.
+
+See `docs/capacity.md` and `governance/capacity.yml` for stages, thresholds, and resume conditions.
+
 ## 8. Conflict Between Charter and Scripts
+
+## 8.1 Criticism and Service Continuity
+
+Moral criticism, ordinary disagreement, misunderstanding, mockery, and public controversy are not service-stopping events by themselves. As long as the service is not broken by legal risk, platform-policy risk, malicious attack, or stability failure, being criticized can remain part of the experiment.
+
+Copyright infringement, privacy exposure, harassment, hate, malware, credential theft, destructive abuse, platform-policy violations, and GitHub Actions permission abuse must be handled as priority risks.
+
+See `docs/risks.md` for the risk model.
 
 When the charter and current automation differ:
 

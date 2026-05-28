@@ -28,6 +28,7 @@ MALICIOUS_PATTERNS = [
     (re.compile(r"\bchmod\s+-R\s+777\s+/(?:\s|$)", re.I), "unsafe recursive chmod on root"),
 ]
 SIGNED_OFF_BY_RE = re.compile(r"^Signed-off-by:\s+.+\s+<[^@\s]+@[^@\s]+>$", re.I | re.M)
+CAPACITY_CONFIG_PATH = "governance/capacity.yml"
 
 
 @dataclass
@@ -168,6 +169,39 @@ def validate_dco(pr) -> list[str]:
     return errors
 
 
+def load_capacity_config(repo, ref: str) -> dict[str, Any]:
+    try:
+        text = decode_file(repo, CAPACITY_CONFIG_PATH, ref)
+    except Exception as exc:
+        logging.info("No capacity config found at %s: %s", ref, exc)
+        return {}
+    data = yaml.safe_load(text) or {}
+    return data if isinstance(data, dict) else {}
+
+
+def validate_capacity_gate(repo, pr, changed_files) -> list[str]:
+    config = load_capacity_config(repo, pr.base.sha)
+    status = str(config.get("status", "open")).strip().casefold()
+    if status != "paused":
+        return []
+
+    has_skill_change = any(
+        changed.status != "removed"
+        and changed.filename.startswith("community/")
+        and changed.filename.endswith(".md")
+        for changed in changed_files
+    )
+    if not has_skill_change:
+        return []
+
+    reason = config.get("reason") or "capacity threshold reached"
+    resume_condition = config.get("resume_condition") or "community vote approves the next architecture adjustment"
+    return [
+        "capacity gate is paused for new or updated active Skill PRs: "
+        f"{reason}. PRs can resume after: {resume_condition}."
+    ]
+
+
 def validate_pr(pr) -> ValidationResult:
     repo = pr.base.repo
     errors: list[str] = []
@@ -177,6 +211,7 @@ def validate_pr(pr) -> ValidationResult:
         errors.append("PR does not contain any changed files.")
 
     errors.extend(validate_dco(pr))
+    errors.extend(validate_capacity_gate(repo, pr, changed_files))
     errors.extend(validate_author_quota(repo, pr, changed_files))
 
     for changed in changed_files:

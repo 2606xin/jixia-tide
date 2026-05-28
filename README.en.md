@@ -51,6 +51,8 @@ We know this design is imperfect. We know any machine-like governance can be byp
 
 If a rule is wrong, change it publicly. If a script is biased, correct it publicly. If reality breaks the design, record that breakage as experimental material.
 
+AI and agents are also part of this experiment. They may help with PR triage, summaries, translation, archival notes, lifecycle hints, and dispute summaries. Their purpose is not to become a new authority, but to free humans from repetitive maintenance. AI judgments must be visible, reviewable, and overridable.
+
 ### Time as the Main Defense
 
 We do not treat hidden review or complex blacklists as the source of safety. Core rules, scoring dimensions, lifecycle mechanisms, and governance changes should move slowly enough to be seen, discussed, and challenged.
@@ -91,6 +93,12 @@ The founder has no real privilege. "Founder privilege" only means experiencing t
 If anything remains, it is only historical attribution: someone once lit a lamp here. Power, rules, and possible revenue belong to public rules, community consensus, and time.
 
 ## Lifecycle
+
+## Capacity Boundaries
+
+The Jixia Tide acknowledges its technical limits. The current stage uses simple scripts and a flat directory. It is good enough to start the experiment, but it should not pretend to scale forever.
+
+If user count or active Skill count suddenly reaches the current stage's critical threshold, the community can pause new active Skill PRs, adjust the architecture, and reopen after voting or visible consensus. See `docs/capacity.md` and `governance/capacity.yml`.
 
 1. **Community**
    New active Skills live under `community/`.
