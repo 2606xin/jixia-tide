@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T09:10:19.395391+00:00",
+  "generated_at": "2026-05-29T09:13:30.490726+00:00",
   "schema_version": 1,
   "score_formula": "10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(max 25)",
   "records": [
@@ -30,6 +30,25 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-05-29T00:00:00+00:00",
+      "age_days": 0,
+      "commit_count": 1,
+      "mention_count": 0,
+      "vote_support": 0,
+      "vote_oppose": 0,
+      "impact_score": 43
+    },
+    {
+      "path": "community/origin-secure-skill.md",
+      "title": "起源版专属 Skill 架构师",
+      "author": "2606xin",
+      "tags": [
+        "project-skill",
+        "governance",
+        "meta",
+        "origin"
+      ],
+      "created_at": "2026-05-29",
+      "last_activity_at": "2026-05-29T09:12:49+00:00",
       "age_days": 0,
       "commit_count": 1,
       "mention_count": 0,

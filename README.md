@@ -165,7 +165,7 @@ AI 与 Agent 也是这个实验的一部分。它们可以帮助做 PR 初审、
 <!-- jixia-impact:start zh -->
 ### 公开生命体征
 
-最近生成：`2026-05-29T09:10:19.395391+00:00`
+最近生成：`2026-05-29T09:13:30.490726+00:00`
 
 这不是商店排名，也不是最终价值裁判。它只是把公开、可审计的互动信号摆出来，方便创作者观察自己的 Skill 是否仍在被看见、讨论和触碰。
 
@@ -173,6 +173,7 @@ AI 与 Agent 也是这个实验的一部分。它们可以帮助做 PR 初审、
 | ---: | --- | --- | ---: | ---: |
 | 43 | [Example Skill](community/example-skill.md) | jixia-bot | 0 | +0/-0 |
 | 43 | [MVP Smoke Test Skill](community/mvp-smoke-test-skill.md) | mvp-smoke-bot | 0 | +0/-0 |
+| 43 | [起源版专属 Skill 架构师](community/origin-secure-skill.md) | 2606xin | 0 | +0/-0 |
 
 完整面板见 [docs/impact.md](docs/impact.md)，机器可读索引见 [community/index.json](community/index.json)。
 
@@ -259,5 +260,6 @@ README 中的基本宪章可以概括为：
 ---
 
 **欢迎来到这场实验。放手去试，错了就改，改了再干。**
+
 
 
