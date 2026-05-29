@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-29T09:00:53.972015+00:00",
+  "generated_at": "2026-05-29T09:02:11.928204+00:00",
   "schema_version": 1,
   "score_formula": "10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(max 25)",
   "records": [
