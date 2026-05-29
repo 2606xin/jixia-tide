@@ -1,0 +1,41 @@
+{
+  "generated_at": "2026-05-29T09:00:53.972015+00:00",
+  "schema_version": 1,
+  "score_formula": "10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(max 25)",
+  "records": [
+    {
+      "path": "community/example-skill.md",
+      "title": "Example Skill",
+      "author": "jixia-bot",
+      "tags": [
+        "example",
+        "governance"
+      ],
+      "created_at": "2026-05-29",
+      "last_activity_at": "2026-05-29T00:00:00+00:00",
+      "age_days": 0,
+      "commit_count": 1,
+      "mention_count": 0,
+      "vote_support": 0,
+      "vote_oppose": 0,
+      "impact_score": 43
+    },
+    {
+      "path": "community/mvp-smoke-test-skill.md",
+      "title": "MVP Smoke Test Skill",
+      "author": "mvp-smoke-bot",
+      "tags": [
+        "test",
+        "governance"
+      ],
+      "created_at": "2026-05-29",
+      "last_activity_at": "2026-05-29T00:00:00+00:00",
+      "age_days": 0,
+      "commit_count": 1,
+      "mention_count": 0,
+      "vote_support": 0,
+      "vote_oppose": 0,
+      "impact_score": 43
+    }
+  ]
+}

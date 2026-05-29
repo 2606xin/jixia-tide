@@ -1,6 +1,6 @@
 # Jixia Guanlan Automation Setup
 
-This repository contains four GitHub Actions automations for the Jixia Guanlan community lifecycle.
+This repository contains five GitHub Actions automations for the Jixia Guanlan community lifecycle.
 
 ## Required Repository Settings
 
@@ -42,6 +42,7 @@ Optional lifecycle fields such as `updated_at`, `last_used_at`, or `last_interac
 
 - **Gatekeeper**: validates pull requests to `main`, comments on failures, and auto-approves plus squash-merges valid skill submissions.
 - **Time Sentinel**: runs daily at `00:00 UTC`, moving inactive skills from `community/` to `legacy/`.
+- **Influence Sentinel**: runs daily, generating public Skill impact signals in `community/index.json` and `docs/impact.md`.
 - **Chronicler**: runs on February 4 at `23:59 UTC`, packages `legacy/` into `Archive_{Year}.zip`, publishes `archive-{year}`, and clears `legacy/`.
 - **Resurrection Council**: starts votes from issue comments like `/vote-resurrect skill-name`, then processes completed votes after 7 days.
 

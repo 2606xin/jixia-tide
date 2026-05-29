@@ -90,7 +90,7 @@ Anyone can start a resurrection vote with `/vote-resurrect {skill_name}`. If vot
 
 ### AI and Agent Maintenance
 
-The project encourages AI and agents to take on maintenance work. AI may perform mechanical checks, summaries, translations, duplicate-content hints, PR triage, lifecycle suggestions, archive notes, and dispute summaries.
+The project encourages AI and agents to take on maintenance work. AI may perform mechanical checks, summaries, translations, duplicate-content hints, PR triage, lifecycle suggestions, public impact signal summaries, archive notes, and dispute summaries.
 
 The goal is to free humans from repetitive maintenance so they can focus on whether their Skills are valuable, read, improved, and socially discussed.
 
@@ -99,6 +99,15 @@ AI judgments must be visible, reviewable, and overridable. AI must not have hidd
 If an agent's implementation is changed by the community and the system temporarily stalls, misjudges, or behaves differently, that too is part of the experiment. As long as legal, platform, security, and stability boundaries are not crossed, the fix should happen through public PRs, Issues, and rollback mechanisms rather than hidden human privilege.
 
 AI maintenance failures should also be recorded as experimental data.
+
+### Influence Sentinel
+
+Influence Sentinel generates public impact signals:
+
+- Sources must be auditable public objects: Git history, `community/*.md`, Issues, PRs, comments, Reactions, and resurrection votes.
+- It outputs `community/index.json` for machines and `docs/impact.md` for humans.
+- Scores are observation, ordering, and maintenance hints only. They must not directly ban a Skill, remove resurrection rights, or change equal authorship status.
+- The formula must stay public. If a signal is abused, the project should publicly change the formula or weight instead of introducing hidden algorithms.
 
 ## 6. Revenue and Sponsorship
 

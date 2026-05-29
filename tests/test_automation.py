@@ -20,6 +20,7 @@ gatekeeper = importlib.import_module("gatekeeper")
 time_sentinel = importlib.import_module("time_sentinel")
 resurrection_council = importlib.import_module("resurrection_council")
 chronicler = importlib.import_module("chronicler")
+influence_sentinel = importlib.import_module("influence_sentinel")
 
 
 class GatekeeperTests(unittest.TestCase):
@@ -299,6 +300,39 @@ class ChroniclerTests(unittest.TestCase):
                 else:
                     os.environ["RUNNER_TEMP"] = old_runner_temp
                 os.chdir(cwd)
+
+
+class InfluenceSentinelTests(unittest.TestCase):
+    def test_impact_score_uses_transparent_caps(self) -> None:
+        score = influence_sentinel.impact_score(
+            age_days=0,
+            commits=100,
+            mentions=100,
+            support=100,
+            oppose=0,
+        )
+        self.assertEqual(score, 10 + 30 + 20 + 30 + 25)
+
+    def test_skill_aliases_match_path_name_stem_and_title(self) -> None:
+        metadata = {"title": "Boundary Study"}
+        aliases = influence_sentinel.skill_aliases(Path("community/boundary-study.md"), metadata)
+        self.assertIn("community/boundary-study.md", aliases)
+        self.assertIn("boundary-study.md", aliases)
+        self.assertIn("boundary-study", aliases)
+        self.assertIn("boundary study", aliases)
+        self.assertTrue(influence_sentinel.text_mentions_alias("See Boundary Study", aliases))
+
+    def test_note_matches_collects_mentions_once_per_source(self) -> None:
+        signals = {"community/example.md": influence_sentinel.InteractionSignals()}
+        matched = influence_sentinel.note_matches(
+            "I used example.md today",
+            "https://example.invalid/issue/1",
+            {"community/example.md": {"example.md"}},
+            signals,
+        )
+        self.assertEqual(matched, ["community/example.md"])
+        self.assertEqual(signals["community/example.md"].mentions, 1)
+        self.assertEqual(signals["community/example.md"].sources, ["https://example.invalid/issue/1"])
 
 
 if __name__ == "__main__":

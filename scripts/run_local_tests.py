@@ -14,6 +14,7 @@ PYTHON_FILES = [
     ROOT / ".github" / "scripts" / "gatekeeper.py",
     ROOT / ".github" / "scripts" / "time_sentinel.py",
     ROOT / ".github" / "scripts" / "chronicler.py",
+    ROOT / ".github" / "scripts" / "influence_sentinel.py",
     ROOT / ".github" / "scripts" / "resurrection_council.py",
 ]
 REQUIRED_DOCS = [
@@ -22,6 +23,7 @@ REQUIRED_DOCS = [
     ROOT / "CHARTER.md",
     ROOT / "CHARTER.en.md",
     ROOT / "docs" / "i18n.md",
+    ROOT / "docs" / "impact.md",
     ROOT / "docs" / "capacity.md",
     ROOT / "docs" / "risks.md",
     ROOT / "governance" / "capacity.yml",
@@ -32,6 +34,7 @@ REQUIRED_DOCS = [
     ROOT / "CONTRIBUTING.md",
     ROOT / "CONTRIBUTING.zh-CN.md",
     ROOT / "DCO.md",
+    ROOT / "community" / "index.json",
     ROOT / ".github" / "PULL_REQUEST_TEMPLATE.md",
     ROOT / ".github" / "ISSUE_TEMPLATE" / "config.yml",
     ROOT / ".github" / "ISSUE_TEMPLATE" / "skill_proposal.yml",
