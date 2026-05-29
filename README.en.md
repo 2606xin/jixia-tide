@@ -96,6 +96,22 @@ If anything remains, it is only historical attribution: someone once lit a lamp 
 
 Influence Sentinel generates `community/index.json` and `docs/impact.md` as public Skill vitality signals. This is not a store ranking or a final judgment of value; it is an auditable panel built from commits, mentions, interactions, and vote signals.
 
+<!-- jixia-impact:start en -->
+### Public Vitality Signals
+
+Generated at: `2026-05-29T09:09:30.533784+00:00`
+
+This is not a store ranking or a final judgment of value. It exposes public, auditable interaction signals so creators can see whether their Skills are still being noticed, discussed, or touched.
+
+| Score | Skill | Author | Mentions | Votes |
+| ---: | --- | --- | ---: | ---: |
+| 43 | [Example Skill](community/example-skill.md) | jixia-bot | 0 | +0/-0 |
+| 43 | [MVP Smoke Test Skill](community/mvp-smoke-test-skill.md) | mvp-smoke-bot | 0 | +0/-0 |
+
+Full panel: [docs/impact.md](docs/impact.md). Machine-readable index: [community/index.json](community/index.json).
+
+<!-- jixia-impact:end en -->
+
 ## Capacity Boundaries
 
 The Jixia Tide acknowledges its technical limits. The current stage uses simple scripts and a flat directory. It is good enough to start the experiment, but it should not pretend to scale forever.
@@ -121,3 +137,4 @@ See [CHARTER.en.md](CHARTER.en.md) for the governance charter.
 See [CONTRIBUTING.md](CONTRIBUTING.md), [DCO.md](DCO.md), [LICENSE](LICENSE), and [LICENSE-DOCS.md](LICENSE-DOCS.md) for contribution and licensing rules.
 
 Welcome to the experiment. Try it, break it, fix it, and try again.
+

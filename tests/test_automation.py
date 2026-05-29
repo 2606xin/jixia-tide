@@ -334,6 +334,16 @@ class InfluenceSentinelTests(unittest.TestCase):
         self.assertEqual(signals["community/example.md"].mentions, 1)
         self.assertEqual(signals["community/example.md"].sources, ["https://example.invalid/issue/1"])
 
+    def test_replace_between_markers_updates_readme_block(self) -> None:
+        text = "before\n<!-- start -->old<!-- end -->\nafter"
+        updated = influence_sentinel.replace_between_markers(
+            text,
+            "<!-- start -->",
+            "<!-- end -->",
+            "<!-- start -->new<!-- end -->",
+        )
+        self.assertEqual(updated, "before\n<!-- start -->new<!-- end -->\nafter")
+
 
 if __name__ == "__main__":
     unittest.main()

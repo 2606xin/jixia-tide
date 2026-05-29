@@ -162,6 +162,22 @@ AI 与 Agent 也是这个实验的一部分。它们可以帮助做 PR 初审、
 5. **公开影响力信号**
    Influence Sentinel 会生成 `community/index.json` 与 `docs/impact.md`，展示每个 Skill 的公开生命体征。它不是商店排名，也不是最终价值裁判，只是把提交、互动、提及和投票等可审计信号摆出来，供创作者和社区观察。
 
+<!-- jixia-impact:start zh -->
+### 公开生命体征
+
+最近生成：`2026-05-29T09:09:30.533784+00:00`
+
+这不是商店排名，也不是最终价值裁判。它只是把公开、可审计的互动信号摆出来，方便创作者观察自己的 Skill 是否仍在被看见、讨论和触碰。
+
+| Score | Skill | Author | Mentions | Votes |
+| ---: | --- | --- | ---: | ---: |
+| 43 | [Example Skill](community/example-skill.md) | jixia-bot | 0 | +0/-0 |
+| 43 | [MVP Smoke Test Skill](community/mvp-smoke-test-skill.md) | mvp-smoke-bot | 0 | +0/-0 |
+
+完整面板见 [docs/impact.md](docs/impact.md)，机器可读索引见 [community/index.json](community/index.json)。
+
+<!-- jixia-impact:end zh -->
+
 ## 📚 目录结构
 
 ```text
@@ -243,3 +259,4 @@ README 中的基本宪章可以概括为：
 ---
 
 **欢迎来到这场实验。放手去试，错了就改，改了再干。**
+

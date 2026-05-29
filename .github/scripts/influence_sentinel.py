@@ -19,6 +19,12 @@ FRONTMATTER_RE = re.compile(r"\A---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 RESURRECTION_MARKER_RE = re.compile(r"jixia-resurrection\s+({.*?})", re.S)
 OUTPUT_JSON = Path("community/index.json")
 OUTPUT_MARKDOWN = Path("docs/impact.md")
+README_ZH = Path("README.md")
+README_EN = Path("README.en.md")
+README_ZH_START = "<!-- jixia-impact:start zh -->"
+README_ZH_END = "<!-- jixia-impact:end zh -->"
+README_EN_START = "<!-- jixia-impact:start en -->"
+README_EN_END = "<!-- jixia-impact:end en -->"
 
 
 @dataclass
@@ -275,6 +281,67 @@ def write_markdown(records: list[SkillRecord], generated_at: datetime) -> None:
     OUTPUT_MARKDOWN.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
 
+def readme_summary_block(records: list[SkillRecord], generated_at: datetime, language: str) -> str:
+    top_records = records[:5]
+    if language == "zh":
+        lines = [
+            README_ZH_START,
+            "### 公开生命体征",
+            "",
+            f"最近生成：`{generated_at.isoformat()}`",
+            "",
+            "这不是商店排名，也不是最终价值裁判。它只是把公开、可审计的互动信号摆出来，方便创作者观察自己的 Skill 是否仍在被看见、讨论和触碰。",
+            "",
+            "| Score | Skill | Author | Mentions | Votes |",
+            "| ---: | --- | --- | ---: | ---: |",
+        ]
+        empty = "暂无 Skill。"
+        full_link = "完整面板见 [docs/impact.md](docs/impact.md)，机器可读索引见 [community/index.json](community/index.json)。"
+    else:
+        lines = [
+            README_EN_START,
+            "### Public Vitality Signals",
+            "",
+            f"Generated at: `{generated_at.isoformat()}`",
+            "",
+            "This is not a store ranking or a final judgment of value. It exposes public, auditable interaction signals so creators can see whether their Skills are still being noticed, discussed, or touched.",
+            "",
+            "| Score | Skill | Author | Mentions | Votes |",
+            "| ---: | --- | --- | ---: | ---: |",
+        ]
+        empty = "No Skills yet."
+        full_link = "Full panel: [docs/impact.md](docs/impact.md). Machine-readable index: [community/index.json](community/index.json)."
+
+    if top_records:
+        for record in top_records:
+            votes = f"+{record.vote_support}/-{record.vote_oppose}"
+            lines.append(
+                f"| {record.impact_score} | [{record.title}]({record.path}) | "
+                f"{record.author or 'unknown'} | {record.mention_count} | {votes} |"
+            )
+    else:
+        lines.append(f"| - | {empty} | - | - | - |")
+    lines.extend(["", full_link, "", README_ZH_END if language == "zh" else README_EN_END])
+    return "\n".join(lines)
+
+
+def replace_between_markers(text: str, start: str, end: str, replacement: str) -> str:
+    pattern = re.compile(re.escape(start) + r".*?" + re.escape(end), re.S)
+    if not pattern.search(text):
+        raise ValueError(f"Missing README impact markers: {start} / {end}")
+    return pattern.sub(replacement, text)
+
+
+def update_readme_summary(records: list[SkillRecord], generated_at: datetime) -> None:
+    replacements = [
+        (README_ZH, README_ZH_START, README_ZH_END, readme_summary_block(records, generated_at, "zh")),
+        (README_EN, README_EN_START, README_EN_END, readme_summary_block(records, generated_at, "en")),
+    ]
+    for path, start, end, block in replacements:
+        text = path.read_text(encoding="utf-8")
+        path.write_text(replace_between_markers(text, start, end, block) + "\n", encoding="utf-8")
+
+
 def main() -> int:
     configure_logging()
     ensure_repo_dirs()
@@ -288,6 +355,7 @@ def main() -> int:
     records = build_records(now, repo=repo)
     write_json(records, now)
     write_markdown(records, now)
+    update_readme_summary(records, now)
     logging.info("Generated impact signals for %s skills.", len(records))
 
     if not args.no_commit:
