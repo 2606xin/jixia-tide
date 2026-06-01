@@ -1,6 +1,6 @@
 # Skill Impact Signals
 
-Generated at: `2026-06-01T05:30:14.337395+00:00`
+Generated at: `2026-06-01T10:12:17.573334+00:00`
 
 This is not a store ranking or a final judgment of value. It is a public experiment panel built from auditable repository and GitHub signals.
 
@@ -8,6 +8,6 @@ Formula: `10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(ma
 
 | Score | Skill | Author | Last activity | Commits | Mentions | Votes |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 44 | [起源版专属 Skill 架构师](../community/origin-secure-skill.md) | 2606xin | 2026-05-30T00:00:00+00:00 | 2 | 0 | +0/-0 |
+| 49 | [起源版专属 Skill 架构师](../community/origin-secure-skill.md) | 2606xin | 2026-06-01T08:38:31+00:00 | 3 | 0 | +0/-0 |
 | 40 | [Example Skill](../community/example-skill.md) | jixia-bot | 2026-05-29T00:00:00+00:00 | 1 | 0 | +0/-0 |
 | 40 | [MVP Smoke Test Skill](../community/mvp-smoke-test-skill.md) | mvp-smoke-bot | 2026-05-29T00:00:00+00:00 | 1 | 0 | +0/-0 |

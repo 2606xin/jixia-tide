@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-01T05:30:14.337395+00:00",
+  "generated_at": "2026-06-01T10:12:17.573334+00:00",
   "schema_version": 1,
   "score_formula": "10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(max 25)",
   "records": [
@@ -14,13 +14,13 @@
         "origin"
       ],
       "created_at": "2026-05-29",
-      "last_activity_at": "2026-05-30T00:00:00+00:00",
-      "age_days": 2,
-      "commit_count": 2,
+      "last_activity_at": "2026-06-01T08:38:31+00:00",
+      "age_days": 0,
+      "commit_count": 3,
       "mention_count": 0,
       "vote_support": 0,
       "vote_oppose": 0,
-      "impact_score": 44
+      "impact_score": 49
     },
     {
       "path": "community/example-skill.md",
