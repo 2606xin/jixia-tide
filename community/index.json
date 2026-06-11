@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-06-10T05:06:06.776520+00:00",
+  "generated_at": "2026-06-11T05:14:37.981293+00:00",
   "schema_version": 1,
   "score_formula": "10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(max 25)",
   "records": [
@@ -15,12 +15,12 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-06-01T08:38:31+00:00",
-      "age_days": 8,
+      "age_days": 9,
       "commit_count": 3,
       "mention_count": 0,
       "vote_support": 0,
       "vote_oppose": 0,
-      "impact_score": 41
+      "impact_score": 40
     },
     {
       "path": "community/example-skill.md",
@@ -32,12 +32,12 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-05-29T00:00:00+00:00",
-      "age_days": 12,
+      "age_days": 13,
       "commit_count": 1,
       "mention_count": 0,
       "vote_support": 0,
       "vote_oppose": 0,
-      "impact_score": 31
+      "impact_score": 30
     },
     {
       "path": "community/mvp-smoke-test-skill.md",
@@ -49,12 +49,12 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-05-29T00:00:00+00:00",
-      "age_days": 12,
+      "age_days": 13,
       "commit_count": 1,
       "mention_count": 0,
       "vote_support": 0,
       "vote_oppose": 0,
-      "impact_score": 31
+      "impact_score": 30
     }
   ]
 }
