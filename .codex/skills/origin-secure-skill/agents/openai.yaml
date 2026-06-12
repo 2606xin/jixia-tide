@@ -1,0 +1,7 @@
+interface:
+  display_name: "Origin Secure Skill"
+  short_description: "Persist and evolve project-specific Codex skills"
+  default_prompt: "Use $origin-secure-skill to audit this project and apply its persistent project-specific Skill rules."
+
+policy:
+  allow_implicit_invocation: true
