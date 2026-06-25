@@ -1,6 +1,6 @@
 # Skill Impact Signals
 
-Generated at: `2026-06-24T04:51:13.014330+00:00`
+Generated at: `2026-06-25T04:50:38.462854+00:00`
 
 This is not a store ranking or a final judgment of value. It is a public experiment panel built from auditable repository and GitHub signals.
 
@@ -8,6 +8,6 @@ Formula: `10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(ma
 
 | Score | Skill | Author | Last activity | Commits | Mentions | Votes |
 | ---: | --- | --- | --- | ---: | ---: | ---: |
-| 27 | [起源版专属 Skill 架构师](../community/origin-secure-skill.md) | 2606xin | 2026-06-01T08:38:31+00:00 | 3 | 0 | +0/-0 |
-| 17 | [Example Skill](../community/example-skill.md) | jixia-bot | 2026-05-29T00:00:00+00:00 | 1 | 0 | +0/-0 |
-| 17 | [MVP Smoke Test Skill](../community/mvp-smoke-test-skill.md) | mvp-smoke-bot | 2026-05-29T00:00:00+00:00 | 1 | 0 | +0/-0 |
+| 26 | [起源版专属 Skill 架构师](../community/origin-secure-skill.md) | 2606xin | 2026-06-01T08:38:31+00:00 | 3 | 0 | +0/-0 |
+| 16 | [Example Skill](../community/example-skill.md) | jixia-bot | 2026-05-29T00:00:00+00:00 | 1 | 0 | +0/-0 |
+| 16 | [MVP Smoke Test Skill](../community/mvp-smoke-test-skill.md) | mvp-smoke-bot | 2026-05-29T00:00:00+00:00 | 1 | 0 | +0/-0 |
