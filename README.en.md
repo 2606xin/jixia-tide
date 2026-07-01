@@ -99,13 +99,13 @@ Influence Sentinel generates `community/index.json` and `docs/impact.md` as publ
 <!-- jixia-impact:start en -->
 ### Public Vitality Signals
 
-Generated at: `2026-06-30T04:50:21.883473+00:00`
+Generated at: `2026-07-01T05:11:00.752363+00:00`
 
 This is not a store ranking or a final judgment of value. It exposes public, auditable interaction signals so creators can see whether their Skills are still being noticed, discussed, or touched.
 
 | Score | Skill | Author | Mentions | Votes |
 | ---: | --- | --- | ---: | ---: |
-| 21 | [起源版专属 Skill 架构师](community/origin-secure-skill.md) | 2606xin | 0 | +0/-0 |
+| 20 | [起源版专属 Skill 架构师](community/origin-secure-skill.md) | 2606xin | 0 | +0/-0 |
 | 13 | [Example Skill](community/example-skill.md) | jixia-bot | 0 | +0/-0 |
 | 13 | [MVP Smoke Test Skill](community/mvp-smoke-test-skill.md) | mvp-smoke-bot | 0 | +0/-0 |
 
@@ -138,6 +138,7 @@ See [CHARTER.en.md](CHARTER.en.md) for the governance charter.
 See [CONTRIBUTING.md](CONTRIBUTING.md), [DCO.md](DCO.md), [LICENSE](LICENSE), and [LICENSE-DOCS.md](LICENSE-DOCS.md) for contribution and licensing rules.
 
 Welcome to the experiment. Try it, break it, fix it, and try again.
+
 
 
 
