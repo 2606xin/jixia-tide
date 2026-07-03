@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-07-02T04:46:02.908963+00:00",
+  "generated_at": "2026-07-03T04:30:32.104178+00:00",
   "schema_version": 1,
   "score_formula": "10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(max 25)",
   "records": [
@@ -15,7 +15,7 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-06-01T08:38:31+00:00",
-      "age_days": 30,
+      "age_days": 31,
       "commit_count": 3,
       "mention_count": 0,
       "vote_support": 0,
@@ -32,7 +32,7 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-05-29T00:00:00+00:00",
-      "age_days": 34,
+      "age_days": 35,
       "commit_count": 1,
       "mention_count": 0,
       "vote_support": 0,
@@ -49,7 +49,7 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-05-29T00:00:00+00:00",
-      "age_days": 34,
+      "age_days": 35,
       "commit_count": 1,
       "mention_count": 0,
       "vote_support": 0,
