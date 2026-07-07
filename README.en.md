@@ -99,7 +99,7 @@ Influence Sentinel generates `community/index.json` and `docs/impact.md` as publ
 <!-- jixia-impact:start en -->
 ### Public Vitality Signals
 
-Generated at: `2026-07-06T04:58:56.814925+00:00`
+Generated at: `2026-07-07T04:37:52.615313+00:00`
 
 This is not a store ranking or a final judgment of value. It exposes public, auditable interaction signals so creators can see whether their Skills are still being noticed, discussed, or touched.
 
@@ -138,6 +138,7 @@ See [CHARTER.en.md](CHARTER.en.md) for the governance charter.
 See [CONTRIBUTING.md](CONTRIBUTING.md), [DCO.md](DCO.md), [LICENSE](LICENSE), and [LICENSE-DOCS.md](LICENSE-DOCS.md) for contribution and licensing rules.
 
 Welcome to the experiment. Try it, break it, fix it, and try again.
+
 
 
 
