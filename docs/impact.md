@@ -1,6 +1,6 @@
 # Skill Impact Signals
 
-Generated at: `2026-08-01T04:04:28.241575+00:00`
+Generated at: `2026-08-02T04:16:34.463406+00:00`
 
 This is not a store ranking or a final judgment of value. It is a public experiment panel built from auditable repository and GitHub signals.
 
