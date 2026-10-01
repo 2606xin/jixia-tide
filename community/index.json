@@ -1,8 +1,28 @@
 {
-  "generated_at": "2026-09-30T05:58:48.348781+00:00",
+  "generated_at": "2026-10-01T06:33:13.404990+00:00",
   "schema_version": 1,
   "score_formula": "10 + freshness(max 30) + commits(max 20) + mentions(max 30) + votes(max 25)",
   "records": [
+    {
+      "path": "community/rtl8812au-clone-driver-skill.md",
+      "title": "RTL8812AU 克隆网卡驱动驯服术",
+      "author": "2606xin",
+      "tags": [
+        "windows",
+        "driver",
+        "hardware",
+        "network",
+        "troubleshooting"
+      ],
+      "created_at": "2026-09-30",
+      "last_activity_at": "2026-09-30T11:36:33+00:00",
+      "age_days": 0,
+      "commit_count": 1,
+      "mention_count": 1,
+      "vote_support": 0,
+      "vote_oppose": 0,
+      "impact_score": 48
+    },
     {
       "path": "community/origin-secure-skill.md",
       "title": "起源版专属 Skill 架构师",
@@ -15,7 +35,7 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-06-01T08:38:31+00:00",
-      "age_days": 120,
+      "age_days": 121,
       "commit_count": 3,
       "mention_count": 0,
       "vote_support": 0,
@@ -32,7 +52,7 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-05-29T00:00:00+00:00",
-      "age_days": 124,
+      "age_days": 125,
       "commit_count": 1,
       "mention_count": 0,
       "vote_support": 0,
@@ -49,7 +69,7 @@
       ],
       "created_at": "2026-05-29",
       "last_activity_at": "2026-05-29T00:00:00+00:00",
-      "age_days": 124,
+      "age_days": 125,
       "commit_count": 1,
       "mention_count": 0,
       "vote_support": 0,
